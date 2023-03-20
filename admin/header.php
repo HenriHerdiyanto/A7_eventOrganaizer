@@ -188,6 +188,13 @@ if (!isset($_SESSION['username'])) {
   </li>
   <!-- End Tables Nav -->
 
+  <li class="nav-item">
+    <a class="nav-link " href="../logout.php">
+      <i class="bi bi-logout"></i>
+      <span>Logout</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+
 </ul>
 
 </aside><!-- End Sidebar-->

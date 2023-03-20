@@ -65,10 +65,7 @@ include "config.php";
 
     </div>
   </header><!-- End Header -->
-<?php 
-$query = mysqli_query($koneksi,"select * from users");
-var_dump($query);
-?>
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
