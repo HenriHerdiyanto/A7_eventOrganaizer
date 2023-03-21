@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
   header("Location: index.php");
 }
+include "../config.php";
 
 ?>
 <!DOCTYPE html>

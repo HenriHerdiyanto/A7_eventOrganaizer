@@ -1,4 +1,6 @@
-<?php require_once "header.php"; ?>
+<?php
+require_once "header.php";
+?>
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -15,17 +17,33 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Insert Event</h5>
+                        <?php
+                        if (isset($_POST["submit"])) {
+                            $nama_event = $_POST["nama_event"];
+                            $tanggal_event = $_POST["tanggal"];
+                            $deskripsi_event = $_POST["deskripsi"];
+                            $gambar_event = $_FILES["gambar_event"]["name"];
+                            $status_event = $_POST["status_event"];
+                            $sql = "INSERT INTO event SET nama_event = '$nama_event', tanggal";
+                            $query = mysqli_query($koneksi, $sql);
+                            if ($query) {
+                                move_uploaded_file($_FILES["gambar_event"]["tmp_name"], "img/event/" . $_FILES["gambar_event"]["name"]);
+                                echo "<script>alert('Data berhasil disimpan');window.location='daftar-event.php';</script>";
+                            } else {
+                                echo "<script>alert('Data gagal disimpan');window.location='insert-event.php';</script>";
+                            }
+                        }
+                        ?>
                         <form action="" method="POST">
                             <label for="">Nama Event</label>
                             <input type="text" name="nama_event" id="nama_event" class="form-control"><br>
                             <label for="">Tanggal Event</label>
-                            <input type="date" name="tanggal_event" id="tanggal_event" class="form-control"><br>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control"><br>
                             <label for="">Deskripsi Event</label>
-                            <textarea name="deskripsi_event" id="deskripsi_event" cols="30" rows="10" class="form-control"></textarea><br>
+                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control"></textarea><br>
                             <label for="">Gambar Event</label>
                             <input type="file" name="gambar_event" id="gambar_event" class="form-control"><br>
                             <label for="">Status Event</label>
