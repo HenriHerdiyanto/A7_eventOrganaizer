@@ -148,7 +148,7 @@ if (!isset($_SESSION['username'])) {
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-car-front-fill"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -177,7 +177,7 @@ if (!isset($_SESSION['username'])) {
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="daftar-event.php">
-          <i class="bi bi-journal-text"></i><span>Event Organaizer</span>
+          <i class="bi bi-building-fill-add"></i></i><span>Event Organaizer</span>
         </a>
 
       <li class="nav-item">
