@@ -52,7 +52,7 @@ if (!isset($_SESSION['username'])) {
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -140,21 +140,34 @@ if (!isset($_SESSION['username'])) {
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link " href="index.php">
+    <a class="nav-link" href="index.php">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
   </li><!-- End Dashboard Nav -->
-
   <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+      <i class="bi bi-menu-button-wide"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      
       <li>
         <a href="components-tooltips.html">
-          <i class="bi bi-circle"></i><span>Tooltips</span>
+          <i class="bi bi-circle"></i><span>Daftar Mobil</span>
+        </a>
+      </li>      
+      <li>
+        <a href="components-tooltips.html">
+          <i class="bi bi-circle"></i><span>Import Mobil</span>
+        </a>
+      </li>
+      <li>
+        <a href="components-tooltips.html">
+          <i class="bi bi-circle"></i><span>Change Mobil</span>
+        </a>
+      </li>
+      <li>
+        <a href="components-tooltips.html">
+          <i class="bi bi-circle"></i><span>Delete Mobil</span>
         </a>
       </li>
     </ul>
