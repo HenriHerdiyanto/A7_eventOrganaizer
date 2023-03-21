@@ -1,12 +1,13 @@
-<?php 
- 
+<?php
+
 session_start();
- 
+
 if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
+  header("Location: index.php");
 }
- 
-?><!DOCTYPE html>
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -78,7 +79,7 @@ if (!isset($_SESSION['username'])) {
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <?php echo "<span class='d-none d-md-block dropdown-toggle ps-2'>" . $_SESSION['username'] ."</span>"; ?>
+            <?php echo "<span class='d-none d-md-block dropdown-toggle ps-2'>" . $_SESSION['username'] . "</span>"; ?>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -134,80 +135,95 @@ if (!isset($_SESSION['username'])) {
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
 
-<ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-  <li class="nav-item">
-    <a class="nav-link" href="index.php">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-menu-button-wide"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="components-tooltips.html">
-          <i class="bi bi-circle"></i><span>Daftar Mobil</span>
+      <li class="nav-item">
+        <a class="nav-link" href="index.php">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
         </a>
-      </li>      
-      <li>
-        <a href="components-tooltips.html">
-          <i class="bi bi-circle"></i><span>Import Mobil</span>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Daftar Mobil</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Insert Mobil</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Change Mobil</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Delete Mobil</span>
+            </a>
+          </li>
+        </ul>
       </li>
-      <li>
-        <a href="components-tooltips.html">
-          <i class="bi bi-circle"></i><span>Change Mobil</span>
+      <!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Event Organaizer</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-      <li>
-        <a href="components-tooltips.html">
-          <i class="bi bi-circle"></i><span>Delete Mobil</span>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="daftar-event.php">
+              <i class=" bi bi-circle"></i><span>Daftar Event</span>
+            </a>
+          </li>
+          <li>
+            <a href="insert-event.php">
+              <i class="bi bi-circle"></i><span>Insert Event</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-editors.php">
+              <i class="bi bi-circle"></i><span>Change Event</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-editors.php">
+              <i class="bi bi-circle"></i><span>Delete Event</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-data.php">
+              <i class="bi bi-circle"></i><span>Data Tables</span>
+            </a>
+          </li>
+        </ul>
       </li>
+      <!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="../logout.php">
+          <i class="bi bi-logout"></i>
+          <span>Logout</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
     </ul>
-  </li>
-  <!-- End Components Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="forms-editors.php">
-          <i class="bi bi-circle"></i><span>Form Editors</span>
-        </a>
-      </li>
-    </ul>
-  </li><!-- End Forms Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="tables-data.php">
-          <i class="bi bi-circle"></i><span>Data Tables</span>
-        </a>
-      </li>
-    </ul>
-  </li>
-  <!-- End Tables Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link " href="../logout.php">
-      <i class="bi bi-logout"></i>
-      <span>Logout</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
-
-</ul>
-
-</aside><!-- End Sidebar-->
+  </aside><!-- End Sidebar-->
