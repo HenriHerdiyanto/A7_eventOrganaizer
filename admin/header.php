@@ -179,6 +179,12 @@ if (!isset($_SESSION['username'])) {
         <a class="nav-link collapsed" href="daftar-event.php">
           <i class="bi bi-building-fill-add"></i></i><span>Event Organaizer</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="daftar-umroh.php">
+          <i class="bi bi-building-fill-add"></i></i><span>Umroh</span>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
