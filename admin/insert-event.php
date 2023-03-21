@@ -1,18 +1,10 @@
 <?php
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
 require_once "header.php";
 ?>
 <main id="main" class="main">
-
-    <div class="pagetitle">
-        <h1>Form Editors</h1>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Forms</li>
-                <li class="breadcrumb-item active">Editors</li>
-            </ol>
-        </nav>
-    </div><!-- End Page Title -->
 
     <section class="section">
         <div class="row">
@@ -23,29 +15,34 @@ require_once "header.php";
                         <?php
                         if (isset($_POST["submit"])) {
                             $nama_event = $_POST["nama_event"];
-                            $tanggal_event = $_POST["tanggal"];
-                            $deskripsi_event = $_POST["deskripsi"];
-                            $gambar_event = $_FILES["gambar_event"]["name"];
+                            $tanggal_event = $_POST["tanggal_event"];
+                            $deskripsi_event = $_POST["deskripsi_event"];
                             $status_event = $_POST["status_event"];
-                            $sql = "INSERT INTO event SET nama_event = '$nama_event', tanggal";
+                            $filename = $_FILES['gambar']['name'];
+                            // JIKA SEMUANYA TIDAK KOSONG
+                            $filetmpname = $_FILES['gambar']['tmp_name'];
+                            $folder = 'image/';
+                            // GAMBAR DI SIMPAN KE DALAM FOLDER
+                            move_uploaded_file($filetmpname, $folder . $filename);
+                            $sql = "INSERT INTO event (nama_event, tanggal, deskripsi, gambar, status) VALUES ('$nama_event', '$tanggal_event', '$deskripsi_event', '$filename', '$status_event')";
                             $query = mysqli_query($koneksi, $sql);
+                            // var_dump($query);
                             if ($query) {
-                                move_uploaded_file($_FILES["gambar_event"]["tmp_name"], "img/event/" . $_FILES["gambar_event"]["name"]);
                                 echo "<script>alert('Data berhasil disimpan');window.location='daftar-event.php';</script>";
                             } else {
                                 echo "<script>alert('Data gagal disimpan');window.location='insert-event.php';</script>";
                             }
                         }
                         ?>
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <label for="">Nama Event</label>
                             <input type="text" name="nama_event" id="nama_event" class="form-control"><br>
                             <label for="">Tanggal Event</label>
-                            <input type="date" name="tanggal" id="tanggal" class="form-control"><br>
+                            <input type="date" name="tanggal_event" id="tanggal_event" class="form-control"><br>
                             <label for="">Deskripsi Event</label>
-                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control"></textarea><br>
+                            <textarea name="deskripsi_event" id="deskripsi_event" cols="30" rows="10" class="form-control"></textarea><br>
                             <label for="">Gambar Event</label>
-                            <input type="file" name="gambar_event" id="gambar_event" class="form-control"><br>
+                            <input type="file" name="gambar" class="form-control"><br>
                             <label for="">Status Event</label>
                             <select name="status_event" id="status_event" class="form-control">
                                 <option value="1">Aktif</option>

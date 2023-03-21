@@ -1,11 +1,10 @@
 <?php
+include "../config.php";
 
-session_start();
 
 if (!isset($_SESSION['username'])) {
   header("Location: index.php");
 }
-include "../config.php";
 
 ?>
 <!DOCTYPE html>
@@ -177,32 +176,9 @@ include "../config.php";
       <!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Event Organaizer</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="daftar-event.php">
+          <i class="bi bi-journal-text"></i><span>Event Organaizer</span>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="daftar-event.php">
-              <i class=" bi bi-circle"></i><span>Daftar Event</span>
-            </a>
-          </li>
-          <li>
-            <a href="insert-event.php">
-              <i class="bi bi-circle"></i><span>Insert Event</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.php">
-              <i class="bi bi-circle"></i><span>Change Event</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.php">
-              <i class="bi bi-circle"></i><span>Delete Event</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
