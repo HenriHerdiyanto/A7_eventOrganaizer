@@ -19,16 +19,6 @@
                                         <th>Ayah Kandung</th>
                                         <th>Ibu Kandung</th>
                                         <th>Nomor Paspor</th>
-                                        <th colspan="2" >TTL</th>
-                                        <th>Gender</th>
-                                        <th>Alamat</th>
-                                        <th>Domisili</th>
-                                        <th>Pekerjaan</th>
-                                        <th>Nomor Hp</th>
-                                        <th>Email</th>
-                                        <th>Paket</th>
-                                        <th>Tanggal</th>
-                                        <th>Foto</th>
                                         <th>Tindakan</th>
                                     </tr>
                                 </thead>
@@ -39,31 +29,12 @@
                                     $no = 1;
                                     while ($data = mysqli_fetch_array($query)) {
                                     ?>
-                                        <tr>
+                                        <tr class="text-center">
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $data["nama"]; ?></td>
                                             <td><?php echo $data["ayah"]; ?></td>
                                             <td><?php echo $data["ibu"]; ?></td>
                                             <td><?php echo $data["paspor"]; ?></td>
-                                            <td><?php echo $data["tempat_lahir"]; ?></td>
-                                            <td><?php echo $data["tanggal_lahir"]; ?></td>
-                                            <td>
-                                                <?php 
-                                                    if($data["gender"] == "L"){
-                                                        echo "Laki-Laki";
-                                                    }else{
-                                                        echo "perempuan";
-                                                    }
-                                                 ?>
-                                            </td>
-                                            <td><?php echo $data["alamat"]; ?></td>
-                                            <td><?php echo $data["domisili"]; ?></td>
-                                            <td><?php echo $data["pekerjaan"]; ?></td>
-                                            <td><?php echo $data["hp"]; ?></td>
-                                            <td><?php echo $data["email"]; ?></td>
-                                            <td><?php echo $data["paket"]; ?></td>
-                                            <td><?php echo $data["tanggal"]; ?></td>
-                                            <td><a href="assets/img/umroh/<?php echo $data["foto"]; ?>">Lihat Foto</a></td>
                                             <td>
                                                 <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning">Edit</a>
                                                 <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-danger">Delete</a>
