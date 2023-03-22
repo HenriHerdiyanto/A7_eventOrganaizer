@@ -19,6 +19,7 @@ $ayah           = "";
 $ibu            = "";
 $foto           = "";
 $id_umroh       = "";
+$status         = "";
 
 if(isset($_GET['id'])){
     $id_umroh = $_GET['id'];
@@ -39,7 +40,8 @@ if(isset($_GET['id'])){
         $paket          = $sql_call['paket'];
         $ayah           = $sql_call['ayah'];
         $ibu            = $sql_call['ibu'];
-        $foto            = $sql_call['foto'];
+        $foto           = $sql_call['foto'];
+        $status         = $sql_call['status']; 
     }
     elseif($proses == "delete"){
         $sql_delete = mysqli_query($koneksi,"DELETE FROM umroh where id = $id_umroh");
@@ -73,12 +75,13 @@ if(isset($_POST['input'])){
     $paket          = $_POST['paket'];
     $ayah           = $_POST['ayah'];
     $ibu            = $_POST['ibu'];
+    $status         = $_POST['status'];
 
   $direktori= "assets/img/umroh/";
   $fileName = $_FILES['foto']['name'];
   move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$fileName);
 
-  $sql_input = mysqli_query($koneksi,"INSERT INTO umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y'), foto='$fileName' ");
+  $sql_input = mysqli_query($koneksi,"INSERT INTO umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y'), foto='$fileName', status='$status' ");
 
   if($sql_input){
     echo "<script type='text/javascript'> 
@@ -107,14 +110,15 @@ if(isset($_POST['input'])){
     $paket          = $_POST['paket'];
     $ayah           = $_POST['ayah'];
     $ibu            = $_POST['ibu'];
+    $status         = $_POST['status'];
 
     $direktori= "assets/img/umroh/";
     $fileName = $_FILES['foto']['name'];
     if(!empty($fileName) ){
       move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$fileName);
-      $sql_edit = mysqli_query($koneksi,"UPDATE umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y'), foto='$fileName' where id = $id_umroh ");
+      $sql_edit = mysqli_query($koneksi,"UPDATE umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y'), foto='$fileName', status='$status' where id = $id_umroh ");
     }else{
-        $sql_edit = mysqli_query($koneksi,"UPDATE umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y') where id = '$id_umroh' ");
+        $sql_edit = mysqli_query($koneksi,"UPDATE umroh SET nama='$nama', paspor='$paspor', tempat_lahir='$tempat', tanggal_lahir='$tanggal_lahir', gender='$gender', alamat='$alamat', domisili='$domisili', pekerjaan='$pekerjaan', hp='$hp', email='$email', paket='$paket', ayah='$ayah', ibu='$ibu', tanggal=DATE_FORMAT(CURDATE(),'%d-%m-%Y'), status='$status' where id = '$id_umroh' ");
     }
 
     if($sql_edit){
@@ -272,7 +276,7 @@ require('header.php');
                             </div>
                         </div>
                     </div>
-                    <?php if($id_umroh != "" && $fileName != ""){ ?>
+                    <?php if($id_umroh != "" && $foto != ""){ ?>
                     <div class="row justify-content-center">
                         <div class="col-xl-3 col-md-6 mb-1"></div>
                         <div class="col-xl-6 col-md-6 mb-1">
@@ -291,6 +295,20 @@ require('header.php');
                         <div class="col-xl-6 col-md-6 mb-1">
                             <div class="input-group input-group-sm mb-3 ">
                                 <input type="file" name="foto"  class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                            <div class="col-xl-3 col-md-6 mb-1">
+                                <label class="col-form-label">Status Pembayaran</label>
+                            </div>
+                        <div class="col-xl-6 col-md-6 mb-1">
+                            <div class="input-group input-group-sm mb-3 ">
+                                <select name="status" class="form-select form-control" required>
+                                    <option value="">--Pilih--</option>
+                                    <option value="diangsur" <?php echo ($status == 'diangsur') ? "selected": "" ?>>diangsur</option>
+                                    <option value="Lunas" <?php echo ($status == 'Lunas') ? "selected": "" ?>>Lunas</option>
+                                </select>  
                             </div>
                         </div>
                     </div>

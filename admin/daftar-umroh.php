@@ -17,6 +17,7 @@
                                         <th>Ayah Kandung</th>
                                         <th>Ibu Kandung</th>
                                         <th>Nomor Paspor</th>
+                                        <th>Status</th>
                                         <th>Tindakan</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,14 @@
                                             <td><?php echo $data["ayah"]; ?></td>
                                             <td><?php echo $data["ibu"]; ?></td>
                                             <td><?php echo $data["paspor"]; ?></td>
+                                            <td><?php
+                                                if($data['status'] != "Lunas"){
+                                                echo "<div class='bg-info text-light fw-bold rounded p-1'>".$data['status']."</div>" ;
+                                                }else{
+                                                    echo "<div class='bg-success text-light fw-bold rounded p-1'>".$data['status']."</div>" ;
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning">Edit</a>
                                                 <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=delete" class="btn btn-danger">Delete</a>
