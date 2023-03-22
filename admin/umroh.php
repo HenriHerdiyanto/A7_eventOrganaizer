@@ -42,16 +42,16 @@ if(isset($_GET['id'])){
         $foto            = $sql_call['foto'];
     }
     elseif($proses == "delete"){
-        $sql_delete = mysqli_query($koneksi,"DELETE FROM karyawan where id = $id_umroh");
+        $sql_delete = mysqli_query($koneksi,"DELETE FROM umroh where id = $id_umroh");
         if($sql_delete){
             echo "<script type='text/javascript'> 
-            alert('hAPUS Data Berhasil');
+            alert('Hapus Data Berhasil');
             window.location.replace('daftar-umroh.php');
             </script>";
         exit;
         }else{
             echo "<script type='text/javascript'> 
-            alert('hAPUS Data Berhasil');
+            alert('Hapus Data Berhasil');
             window.location.replace('daftar-umroh.php');
             </script>";
         exit;
@@ -272,6 +272,7 @@ require('header.php');
                             </div>
                         </div>
                     </div>
+                    <?php if($id_umroh != "" && $fileName != ""){ ?>
                     <div class="row justify-content-center">
                         <div class="col-xl-3 col-md-6 mb-1"></div>
                         <div class="col-xl-6 col-md-6 mb-1">
@@ -282,6 +283,7 @@ require('header.php');
                            </div>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="row justify-content-center">
                             <div class="col-xl-3 col-md-6 mb-1">
                                 <label class="col-form-label">Foto Profil</label>
