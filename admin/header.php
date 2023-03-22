@@ -187,23 +187,16 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Paket Wisata</span>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
       </li>
       <!-- End Tables Nav -->
 
       <li class="nav-item">
         <a class="nav-link " href="../logout.php">
           <i class="bi bi-logout"></i>
-          <span>Logout</span>
+          <i class="bi bi-box-arrow-right mb-0"></i><span>Logout</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
