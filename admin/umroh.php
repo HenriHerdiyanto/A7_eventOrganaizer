@@ -137,200 +137,208 @@ if(isset($_POST['input'])){
 }
 require('header.php'); 
 ?>
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div class="container ps-5 mt-5  justify-content-center">
-            <div class="card">
-                <h5 class="card-header  bg-primary bg-gradient text-light">Input Data Umroh</h5>
-                <div class="card-body mt-4 mb-4">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                        <label for="firstname" class="col-form-label">Nama Lengkap</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                        <div  class="input-group input-group-sm mb-3 ">
-                            <input type="text"  name="nama" value="<?php echo $nama ?>" class="form-control text-capitalize" required>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">No Paspor</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" name="paspor" value="<?php echo $paspor ?>" class="form-control " required>
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="container ps-5 mt-5  justify-content-center">
+                        <div class="card">
+                            <h5 class="card-header  bg-primary bg-gradient text-light">Input Data Umroh</h5>
+                            <div class="card-body mt-4 mb-4">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                    <label for="firstname" class="col-form-label">Nama Lengkap</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                    <div  class="input-group input-group-sm mb-3 ">
+                                        <input type="text"  name="nama" value="<?php echo $nama ?>" class="form-control text-capitalize" required>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">No Paspor</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" name="paspor" value="<?php echo $paspor ?>" class="form-control " required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Jenis Kelamin</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <select name="gender" class="form-select form-control" required>
+                                                <option value="">--Pilih--</option>
+                                                <option value="L" <?php echo ($gender == 'L') ? "selected": "" ?>>Laki-laki</option>
+                                                <option value="P" <?php echo ($gender == 'P') ? "selected": "" ?>>Perempuan</option>
+                                            </select>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                    <label class="col-form-label">Tempat/Tanggal Lahir</label>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" name="tempat_lahir" value="<?php echo $tempat ?>" class="form-control " required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="date" name="tanggal_lahir" value="<?php echo $tanggal_lahir ?>" class="form-control " required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Alamat Lengkap(sesuai KTP)</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <textarea  name="alamat" class="form-control" rows="3" required><?php echo $alamat ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Alamat Sekarang</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <textarea name="domisili" class="form-control" rows="3" required><?php echo $domisili ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Pekerjaan</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" value="<?php echo $pekerjaan ?>" name="pekerjaan" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Nomor HP</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" value="<?php echo $hp ?>" name="hp" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Email</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" value="<?php echo $email ?>" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Nama Ibu Kandung</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" value="<?php echo $ibu ?>" name="ibu" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Nama Ayah Kandung</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <input type="text" value="<?php echo $ayah ?>" name="ayah" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Paket Umroh</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div  class="input-group input-group-sm mb-3 ">
+                                            <select name="paket" class="form-select form-control" required>
+                                                <option value="">--Pilih--</option>
+                                                <option value="Quad" <?php echo ($paket == 'Quad') ? "selected": "" ?>>Quad</option>
+                                                <option value="Triple" <?php echo ($paket == 'Triple') ? "selected": "" ?>>Triple</option>
+                                                <option value="Double" <?php echo ($paket == 'Double') ? "selected": "" ?>>Double</option>
+                                            </select>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php if($id_umroh != "" && $foto != ""){ ?>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1"></div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                    <div class="text-start p-1 ">
+                                        <a href="assets/img/umroh/<?php echo $foto ?>">
+                                            <img src="assets/img/umroh/<?php echo $foto ?>" class="w-25 p-1 rounded border border-secondary" alt="<?php echo $foto ?>">
+                                        </a>
+                                    </div>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                                <div class="row justify-content-center">
+                                        <div class="col-xl-3 col-md-6 mb-1">
+                                            <label class="col-form-label">Foto Profil</label>
+                                        </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div class="input-group input-group-sm mb-3 ">
+                                            <input type="file" name="foto"  class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                        <div class="col-xl-3 col-md-6 mb-1">
+                                            <label class="col-form-label">Status Pembayaran</label>
+                                        </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div class="input-group input-group-sm mb-3 ">
+                                            <select name="status" class="form-select form-control" required>
+                                                <option value="">--Pilih--</option>
+                                                <option value="diangsur" <?php echo ($status == 'diangsur') ? "selected": "" ?>>diangsur</option>
+                                                <option value="Lunas" <?php echo ($status == 'Lunas') ? "selected": "" ?>>Lunas</option>
+                                            </select>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-5 col-md-6 mb-1 "></div>
+                                    <?php 
+                                        if(empty($id_umroh)){
+                                    echo "<div class='col-xl-4 col-md-6 mb-5 text-end '>";
+                                    echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='input'>Input</button>";
+                                    echo "</div>";
+                                    }else{
+                                    echo "<div class='col-xl-2 col-md-6 mb-5 text-end  >";
+                                    echo "<a href='data-karyawan.php' class='text-decoration-none text-light'><button class='btn btn-danger form-control fw-bold text-uppercase'>Batal</button></a>";
+                                    echo "</div>";
+                                    echo "<div class='col-xl-2 col-md-6 mb-5 text-end ' >";
+                                    echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='edit'>Simpan</button>";
+                                    echo "</div>";
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Jenis Kelamin</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <select name="gender" class="form-select form-control" required>
-                                    <option value="">--Pilih--</option>
-                                    <option value="L" <?php echo ($gender == 'L') ? "selected": "" ?>>Laki-laki</option>
-                                    <option value="P" <?php echo ($gender == 'P') ? "selected": "" ?>>Perempuan</option>
-                                </select>  
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                        <label class="col-form-label">Tempat/Tanggal Lahir</label>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" name="tempat_lahir" value="<?php echo $tempat ?>" class="form-control " required>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="date" name="tanggal_lahir" value="<?php echo $tanggal_lahir ?>" class="form-control " required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Alamat Lengkap(sesuai KTP)</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <textarea  name="alamat" class="form-control" rows="3" required><?php echo $alamat ?></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Alamat Sekarang</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <textarea name="domisili" class="form-control" rows="3" required><?php echo $domisili ?></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Pekerjaan</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" value="<?php echo $pekerjaan ?>" name="pekerjaan" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Nomor HP</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" value="<?php echo $hp ?>" name="hp" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Email</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" value="<?php echo $email ?>" name="email" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Nama Ibu Kandung</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" value="<?php echo $ibu ?>" name="ibu" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Nama Ayah Kandung</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <input type="text" value="<?php echo $ayah ?>" name="ayah" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1">
-                            <label class="col-form-label">Paket Umroh</label>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div  class="input-group input-group-sm mb-3 ">
-                                <select name="paket" class="form-select form-control" required>
-                                    <option value="">--Pilih--</option>
-                                    <option value="Quad" <?php echo ($paket == 'Quad') ? "selected": "" ?>>Quad</option>
-                                    <option value="Triple" <?php echo ($paket == 'Triple') ? "selected": "" ?>>Triple</option>
-                                    <option value="Double" <?php echo ($paket == 'Double') ? "selected": "" ?>>Double</option>
-                                </select>  
-                            </div>
-                        </div>
-                    </div>
-                    <?php if($id_umroh != "" && $foto != ""){ ?>
-                    <div class="row justify-content-center">
-                        <div class="col-xl-3 col-md-6 mb-1"></div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                           <div class="text-start p-1 ">
-                            <a href="assets/img/umroh/<?php echo $foto ?>">
-                                <img src="assets/img/umroh/<?php echo $foto ?>" class="w-25 p-1 rounded border border-secondary" alt="<?php echo $foto ?>">
-                            </a>
-                           </div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <div class="row justify-content-center">
-                            <div class="col-xl-3 col-md-6 mb-1">
-                                <label class="col-form-label">Foto Profil</label>
-                            </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="input-group input-group-sm mb-3 ">
-                                <input type="file" name="foto"  class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                            <div class="col-xl-3 col-md-6 mb-1">
-                                <label class="col-form-label">Status Pembayaran</label>
-                            </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="input-group input-group-sm mb-3 ">
-                                <select name="status" class="form-select form-control" required>
-                                    <option value="">--Pilih--</option>
-                                    <option value="diangsur" <?php echo ($status == 'diangsur') ? "selected": "" ?>>diangsur</option>
-                                    <option value="Lunas" <?php echo ($status == 'Lunas') ? "selected": "" ?>>Lunas</option>
-                                </select>  
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-xl-5 col-md-6 mb-1 "></div>
-                        <?php 
-                            if(empty($id_umroh)){
-                        echo "<div class='col-xl-4 col-md-6 mb-5 text-end '>";
-                        echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='input'>Input</button>";
-                        echo "</div>";
-                        }else{
-                        echo "<div class='col-xl-2 col-md-6 mb-5 text-end  >";
-                        echo "<a href='data-karyawan.php' class='text-decoration-none text-light'><button class='btn btn-danger form-control fw-bold text-uppercase'>Batal</button></a>";
-                        echo "</div>";
-                        echo "<div class='col-xl-2 col-md-6 mb-5 text-end ' >";
-                        echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='edit'>Simpan</button>";
-                        echo "</div>";
-                            }
-                        ?>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-    </form>
+    </section>
+</main>
 <?php require('footer.php'); ?>
