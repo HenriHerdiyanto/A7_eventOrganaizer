@@ -147,31 +147,9 @@ if (!isset($_SESSION['username'])) {
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-car-front-fill"></i><span>Mobil</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="daftar-mobil.php">
+          <i class="bi bi-car-front-fill"></i><span>Mobil</span>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Daftar Mobil</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Insert Mobil</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Change Mobil</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Delete Mobil</span>
-            </a>
-          </li>
-        </ul>
       </li>
       <!-- End Components Nav -->
 
