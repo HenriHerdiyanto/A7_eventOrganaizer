@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Daftar Umroh</h5>
-                        <a href="umroh.php" class="btn btn-primary">Tambah Data</a><br><br>
+                        <a href="paket-umroh.php" class="btn btn-primary">Tambah Data</a><br><br>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead>
@@ -51,7 +51,7 @@
                                         </tr>
                                     <?php } }else{?>
                                     <tr>
-                                        <td colspan="6" class="text-center fw-bold text-primary">
+                                        <td colspan="7" class="text-center fw-bold text-primary">
                                             <img src="assets/img/bg-empty.png" style="width:50%;height:50%;" alt="bg-empty.png">
                                             <h1><b>Data Kosong</b></h1>
                                         </td>

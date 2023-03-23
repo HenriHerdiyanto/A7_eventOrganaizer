@@ -148,7 +148,7 @@ require('header.php');
                             <div class="card-body mt-4 mb-4">
                                 <div class="row justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
-                                    <label for="firstname" class="col-form-label">Nama Lengkap</label>
+                                    <label for="firstname" class="col-form-label">Nama Paket</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
                                     <div  class="input-group input-group-sm mb-3 ">
@@ -158,11 +158,15 @@ require('header.php');
                                 </div>
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">No Paspor</label>
+                                        <label class="col-form-label">Layanan</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" name="paspor" value="<?php echo $paspor ?>" class="form-control " required>
+                                        <div class="input-group input-group-sm mb-3 ">
+                                            <select name="gender" class="form-select form-control" required>
+                                                <option value="">--Pilih--</option>
+                                                <option value="L" <?php echo ($gender == 'L') ? "selected": "" ?>>Laki-laki</option>
+                                                <option value="P" <?php echo ($gender == 'P') ? "selected": "" ?>>Perempuan</option>
+                                            </select>  
                                         </div>
                                     </div>
                                 </div>
