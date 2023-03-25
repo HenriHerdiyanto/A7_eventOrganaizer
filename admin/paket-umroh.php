@@ -162,10 +162,12 @@ require('header.php');
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
                                         <div class="input-group input-group-sm mb-3 ">
-                                            <select name="gender" class="form-select form-control" required>
+                                            <select name="layanan" class="form-select form-control" required>
                                                 <option value="">--Pilih--</option>
-                                                <option value="L" <?php echo ($gender == 'L') ? "selected": "" ?>>Laki-laki</option>
-                                                <option value="P" <?php echo ($gender == 'P') ? "selected": "" ?>>Perempuan</option>
+                                                <option value="L" <?php echo ($layanan == 'Umroh Regular') ? "selected": "" ?>>Umroh Regular</option>
+                                                <option value="P" <?php echo ($layanan == 'Umroh & Tour') ? "selected": "" ?>>Umroh & Tour</option>
+                                                <option value="Halal Tour" <?php echo ($layanan == 'Halal Tour') ? "selected": "" ?>>Halal Tour</option>
+                                                <option value="Haji Plus" <?php echo ($layanan == 'Haji Plus') ? "selected": "" ?>>Haji Plus</option>
                                             </select>  
                                         </div>
                                     </div>
