@@ -159,7 +159,7 @@ if (!isset($_SESSION['username'])) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="daftar-umroh.php">
+        <a class="nav-link collapsed" href="list-umroh.php">
           <i class="bi bi-building-fill-add"></i></i><span>Umroh</span>
         </a>
       </li>
