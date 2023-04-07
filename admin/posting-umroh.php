@@ -3,23 +3,23 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require('../config.php');
 $nama           = "";
-$paspor         = "";
-$tempat         = "";
-$tanggal_lahir  = "";
-$gender         = "";
-$alamat         = "";
-$domisili       = "";
-$pekerjaan      = "";
-$hp             = "";
-$email          = "";
+// $paspor         = "";
+// $tempat         = "";
+// $tanggal_lahir  = "";
+// $gender         = "";
+// $alamat         = "";
+// $domisili       = "";
+// $pekerjaan      = "";
+// $hp             = "";
+$deskripsi          = "";
 $paket          = "";
-$ayah           = "";
-$ibu            = "";
+$berangkat           = "";
+$layanan            = "";
 $foto           = "";
 $id_umroh       = "";
 $status         = "";
+$fasilitas      = "";
 
 if(isset($_GET['id'])){
     $id_umroh = $_GET['id'];
@@ -135,8 +135,24 @@ if(isset($_POST['input'])){
       exit;
     }
 }
+echo "<br><br>";
 require('header.php'); 
 ?>
+<style>
+.field_wrapper div {
+    margin-bottom: 10px;
+}
+.remove_input_button {
+    margin-top: 10px;
+    margin-left: 15px;
+    vertical-align: text-bottom;
+}
+.add_input_button {
+    margin-top: 10px;
+    margin-left: 10px;
+    vertical-align: text-bottom;
+}
+</style>
 <main id="main" class="main">
     <section class="section">
         <div class="row">
@@ -177,103 +193,21 @@ require('header.php');
                                         <label class="col-form-label">Fasilitas</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <select name="gender" class="form-select form-control" required>
-                                                <option value="">--Pilih--</option>
-                                                <option value="L" <?php echo ($gender == 'L') ? "selected": "" ?>>Laki-laki</option>
-                                                <option value="P" <?php echo ($gender == 'P') ? "selected": "" ?>>Perempuan</option>
-                                            </select>  
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                    <label class="col-form-label">Tempat/Tanggal Lahir</label>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" name="tempat_lahir" value="<?php echo $tempat ?>" class="form-control " required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="date" name="tanggal_lahir" value="<?php echo $tanggal_lahir ?>" class="form-control " required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Alamat Lengkap(sesuai KTP)</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <textarea  name="alamat" class="form-control" rows="3" required><?php echo $alamat ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Alamat Sekarang</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <textarea name="domisili" class="form-control" rows="3" required><?php echo $domisili ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Pekerjaan</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" value="<?php echo $pekerjaan ?>" name="pekerjaan" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Nomor HP</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" value="<?php echo $hp ?>" name="hp" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Email</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" value="<?php echo $email ?>" name="email" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Nama Ibu Kandung</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" value="<?php echo $ibu ?>" name="ibu" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Nama Ayah Kandung</label>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 mb-1">
-                                        <div  class="input-group input-group-sm mb-3 ">
-                                            <input type="text" value="<?php echo $ayah ?>" name="ayah" class="form-control" required>
+                                        <div class="field_wrapper">
+                                            <div>
+                                                <div  class="input-group input-group-sm mb-3 ">
+                                                    <input type="text" name="input_field[]" class="form-control" value="<?php echo $fasilitas ?>"/>
+                                                    <a href="javascript:void(0);" class="add_input_button" title="Add field">
+                                                    &nbsp;&nbsp;&nbsp;<i class="bi bi-plus-circle fs-4 text-primary"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Paket Umroh</label>
+                                        <label class="col-form-label">Paket Hotel</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
                                         <div  class="input-group input-group-sm mb-3 ">
@@ -283,6 +217,34 @@ require('header.php');
                                                 <option value="Triple" <?php echo ($paket == 'Triple') ? "selected": "" ?>>Triple</option>
                                                 <option value="Double" <?php echo ($paket == 'Double') ? "selected": "" ?>>Double</option>
                                             </select>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Tanggal Keberangkatan</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div class="field_wrapper">
+                                            <div>
+                                                <div  class="input-group input-group-sm mb-3 ">
+                                                    <input type="text" name="input_field[]" class="form-control" value="<?php echo $berangkat ?>"/>
+                                                    <a href="javascript:void(0);" class="add_input_button" title="Add field">
+                                                    &nbsp;&nbsp;&nbsp;<i class="bi bi-plus-circle fs-4 text-primary"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Deskripsi</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-1">
+                                        <div class="form-group">
+                                            <label for="htmeditor">Body</label>
+                                            <textarea id="htmeditor" name="body"><?php echo $body ?></textarea> <script src="https://htmeditor.com/js/htmeditor.min.js"      htmeditor_textarea="htmeditor"      full_screen="no"      editor_height="480"     run_local="no"> </script> 
                                         </div>
                                     </div>
                                 </div>
@@ -347,4 +309,26 @@ require('header.php');
         </div>
     </section>
 </main>
+<script type="text/javascript">
+		$(document).ready(function(){
+		var max_fields = 10;
+		var add_input_button = $('.add_input_button');
+		var field_wrapper = $('.field_wrapper');
+		var new_field_html = '<div><input type="text" name="input_field[]" class="mt-3"  value=""/><a href="javascript:void(0);" class="remove_input_button" title="Remove field">&nbsp;&nbsp;&nbsp;<i class="bi bi-dash-circle text-primary fs-4"></i></a></div>';
+		var input_count = 1; 
+		// Add button dynamically
+		$(add_input_button).click(function(){
+			if(input_count < max_fields){
+				input_count++; 
+				$(field_wrapper).append(new_field_html); 
+			}
+		});
+			// Remove dynamically added button
+			$(field_wrapper).on('click', '.remove_input_button', function(e){
+				e.preventDefault();
+				$(this).parent('div').remove();
+				input_count--;
+			});
+		});
+	</script>
 <?php require('footer.php'); ?>
