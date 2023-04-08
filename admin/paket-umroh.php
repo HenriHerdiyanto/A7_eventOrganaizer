@@ -3,7 +3,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require('../config.php');
+require('header.php'); 
 $nama           = "";
 $paspor         = "";
 $tempat         = "";
@@ -135,10 +135,10 @@ if(isset($_POST['input'])){
       exit;
     }
 }
-require('header.php'); 
+
 ?>
 <main id="main" class="main">
-    <section class="section">
+    <section class="section mt-3">
         <div class="row">
             <div class="col-lg-12">
                 <form action="" method="POST" enctype="multipart/form-data">

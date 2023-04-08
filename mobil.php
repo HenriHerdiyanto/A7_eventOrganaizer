@@ -22,55 +22,42 @@
     </div>
   </section>
 
-  <!-- ======= Portfolio Details Section ======= -->
-  <section id="portfolio-details" class="portfolio-details">
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-8">
-          <div class="portfolio-details-slider swiper">
-            <div class="swiper-wrapper align-items-center">
-
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
-              </div>
-
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
+  <section class="container">
+  <div class="row">
+    <div class="col-4" style="background-color: red;">
+      col-4
+    </div>    
+    <div class="col-8" style="background-color: blue;">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#paket1">Paket 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#paket2">Paket 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#paket3">Paket 3</a>
+        </li>
+      </ul>
+      <form class="card-body tab-content" style="background-color: green;">
+        <div class="tab-pane active" id="paket1">
+          <p class="card-text" >
+            <div>Tanpa Supir</div>
+            <div>Tanpa Supir</div>
+            <div>Tanpa Supir</div>
+          </p>
         </div>
-
-        <div class="col-lg-4">
-          <div class="portfolio-info">
-            <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-            </ul>
-          </div>
-          <div class="portfolio-description">
-            <h2>This is an example of portfolio detail</h2>
-            <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-            </p>
-          </div>
+        <div class="tab-pane" id="paket2">
+          <p class=" card-text">List Paket 2</p>
         </div>
-
-      </div>
-
+        <div class="tab-pane" id="paket3">
+          <p class=" card-text">List Paket 3</p>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
     </div>
-  </section><!-- End Portfolio Details Section -->
+  </div>
+  </section>
 
 </main><!-- End #main -->
 <?php include "footer.php" ?>
