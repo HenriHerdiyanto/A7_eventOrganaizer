@@ -25,7 +25,7 @@
   <section class="container border">
   <div class="row">
     <div class="col-4">
-      <img src="assets/img/mobil.png" alt="mobil" width="300px">
+      <img src="assets/img/mobil.png" alt="mobil" width="300px" class="img-fluid">
     </div>    
     <div class="col-8">
       <ul class="nav nav-tabs">
