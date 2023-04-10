@@ -46,7 +46,8 @@ include "config.php";
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html">Techie</a></h1>
+            <!-- <h1 class="logo"><a href="index.html">Techie</a></h1> -->
+            <a class="text-white" href="index.php"><img style="width: 40px;" src="assets/img/a7.png" alt="">A7_EventOrganaizer</a>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -57,7 +58,7 @@ include "config.php";
                     <li class="dropdown"><a href="#"><span>Event Organaizer</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="eo.php">Event Terbaru</a></li>
-                            <li><a href="#">Daftar Event</a></li>
+                            <li><a href="daftar-Eo.php">Daftar Event</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
