@@ -7,46 +7,65 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">List Paket Umroh</h5>
-                        <a href="paket-umroh.php" class="btn btn-primary">Posting Baru</a><br><br>
+                        <a href="posting-umroh.php" class="btn btn-primary">Posting Baru</a><br><br>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Judul</th>
+                                        <th>Nama Paket</th>
+                                        <th>Layanan</th>
+                                        <th>Fasilitas</th>
+                                        <th>Paket Hotel</th>
                                         <th>Keberangkatan</th>
-                                        <th>harga</th>
-                                        <th>Nomor Paspor</th>
                                         <th>Foto</th>
+                                        <th>harga</th>
                                         <th>Tindakan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT * FROM umroh";
+                                    $sql = "SELECT * FROM paket";
                                     $query  = mysqli_query($koneksi, $sql);
                                     $row    = mysqli_num_rows($query);
                                     $no = 1;
                                     if($row > 0){
                                     while ($data = mysqli_fetch_array($query)) {
+                                        $id_paket = $data['id'];
+
+                                        $sql_fasilitas = mysqli_query($koneksi,"SELECT * FROM fasilitas where id_paket = $id_paket ");
+                                        $sql_hotel = mysqli_query($koneksi,"SELECT * FROM hotel where id_paket = $id_paket ");
+                                        $sql_berangkat = mysqli_query($koneksi,"SELECT * FROM berangkat where id_paket = $id_paket ");
+                                        
                                     ?>
                                         <tr class="text-center">
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $data["nama"]; ?></td>
-                                            <td><?php echo $data["ayah"]; ?></td>
-                                            <td><?php echo $data["ibu"]; ?></td>
-                                            <td><?php echo $data["paspor"]; ?></td>
+                                            <td><?php echo $data["layanan"]; ?></td>
                                             <td><?php
-                                                if($data['status'] != "Lunas"){
-                                                echo "<div class='bg-info text-light fw-bold rounded p-1'>".$data['status']."</div>" ;
-                                                }else{
-                                                    echo "<div class='bg-success text-light fw-bold rounded p-1'>".$data['status']."</div>" ;
-                                                }
-                                                ?>
+                                                 foreach($sql_fasilitas as $value => $key){
+                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['fasilitas']."</div>";
+                                                 }
+                                                 ?>
                                             </td>
+                                            <td><?php
+                                                 foreach($sql_hotel as $value => $key){
+                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['nama']."</div>";
+                                                 }
+                                                 ?>
+                                            </td>
+                                            <td><?php
+                                                 foreach($sql_berangkat as $value => $key){
+                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['tanggal']."</div>";
+                                                 }
+                                                 ?>
+                                            </td>
+
+                                            <td><a href="assets/img/umroh/<?php echo $data["foto"]; ?>">Priview</a></td>
+                                            <td><?php echo $data["harga"]; ?></td>
                                             <td>
-                                                <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning">Edit</a>
-                                                <a href="umroh.php?id=<?php echo $data["id"]; ?>&proses=delete" class="btn btn-danger">Delete</a>
+                                                <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning ">Edit</a>
+                                                <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=delete" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     <?php } }else{?>
