@@ -1,4 +1,9 @@
-<?php include "header.php" ?>
+<?php
+include "header.php";
+$result = mysqli_query($koneksi, "SELECT * FROM mobil");
+?>
+
+
 
 <main id="main">
   <section class="container static">
@@ -25,13 +30,13 @@
     </div>
   </section>
 
-  <!-- <section>
-    <div class="container">
-      <div class="d-flex flex-row mb-3 justify-content-center">
-        <div class="p-2 me-1">
+  <section class="container border">
+
+      <div class="row">
+        <div class="col-4">
           <img src="assets/img/mobil.png" alt="mobil" width="300px" class="img-fluid">
         </div>
-        <div class="p-2">
+        <div class="col-8">
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link active" data-bs-toggle="tab" href="#paket1">Paket 1</a>
@@ -41,6 +46,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="tab" href="#paket3">Paket 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#paket4">Deskripsi Mobil</a>
             </li>
           </ul>
           <form class="card-body tab-content">
@@ -72,6 +80,14 @@
               </ol>
               </p>
             </div>
+            <div class="tab-pane" id="paket4">
+              <ol class="list-group list-group-numbered">
+                <p class="pt-3">
+                  Mobil keluarga yang sangat bersahabat
+                  <!-- <li class="list-group-item">Mobil keluarga yang sangat bersahabat</li> -->
+                </p>
+              </ol>
+            </div>
             <button class="btn btn-success" type="submit">
               <i class="fa-brands fa-whatsapp"></i>
               Pesan Sekarang
@@ -79,65 +95,11 @@
           </form>
         </div>
       </div>
-    </div>
-  </section> -->
-
-  <section class="container border">
-    <div class="row">
-      <div class="col-4">
-        <img src="assets/img/mobil.png" alt="mobil" width="300px" class="img-fluid">
-      </div>
-      <div class="col-8">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#paket1">Paket 1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#paket2">Paket 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#paket3">Paket 3</a>
-          </li>
-        </ul>
-        <form class="card-body tab-content">
-          <div class="tab-pane active" id="paket1">
-            <p>
-            <ol class="list-group list-group-numbered">
-              <li class="list-group-item">Tanpa Supir</li>
-              <li class="list-group-item">Bensin Sendiri</li>
-              <li class="list-group-item">Mobil Ambil Sendiri</li>
-            </ol>
-            </p>
-
-          </div>
-          <div class="tab-pane" id="paket2">
-            <ol class="list-group list-group-numbered">
-              <p>
-                <li class="list-group-item">Dengan Supir</li>
-                <li class="list-group-item">Bensin Sendiri</li>
-                <li class="list-group-item">Mobil Ambil Sendiri</li>
-            </ol>
-            </p>
-          </div>
-          <div class="tab-pane" id="paket3">
-            <ol class="list-group list-group-numbered">
-              <p>
-                <li class="list-group-item">Dengan Supir</li>
-                <li class="list-group-item">Bensin Disediakan</li>
-                <li class="list-group-item">Di Jemput</li>
-            </ol>
-            </p>
-          </div>
-          <button class="btn btn-success" type="submit">
-            <i class="fa-brands fa-whatsapp"></i>
-            Pesan Sekarang
-          </button>
-        </form>
-      </div>
-    </div>
   </section>
 
   <br>
 
 </main><!-- End #main -->
-<?php include "footer.php" ?>
+<?php
+include "footer.php"
+?>
