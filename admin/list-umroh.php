@@ -62,7 +62,7 @@
                                             </td>
 
                                             <td><a href="assets/img/umroh/<?php echo $data["foto"]; ?>">Priview</a></td>
-                                            <td><?php echo $data["harga"]; ?></td>
+                                            <td><?php echo number_format($data["harga"],0,",",".") ?></td>
                                             <td>
                                                 <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning ">Edit</a>
                                                 <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=delete" class="btn btn-danger">Delete</a>

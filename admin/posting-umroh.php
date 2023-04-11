@@ -369,7 +369,7 @@ if(isset($_POST['input'])){
                                         </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
                                         <div class="input-group input-group-sm mb-3 ">
-                                           <input type="text" name="harga" id="harga" value="<?php echo $harga ?>" class="form-control">
+                                           <input type="text" name="harga" id="harga" value="<?php echo number_format($harga,0,",",".") ?>" class="form-control">
                                         </div>
                                     </div>
                                 </div>
