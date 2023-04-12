@@ -34,7 +34,7 @@ $link_to_google = "https://google.com";
 
   <?php foreach ($result as $key => $value) : ?>
 
-    <section class="container border" style="height: 450px;">
+    <section class="container border" style="height: auto;">
       <div class="row">
         <!-- <div class="col-4">
           <img src="admin/image/<?= $value['gambar'] ?>"alt="mobil" width="300px" class="img-fluid">
