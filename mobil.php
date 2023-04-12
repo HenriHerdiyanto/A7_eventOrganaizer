@@ -30,25 +30,26 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
     </div>
   </section>
 
-  <section class="container border">
+  <?php foreach ($result as $key => $value) : ?>
 
+    <section class="container border" style="height: 450px;">
       <div class="row">
         <div class="col-4">
-          <img src="assets/img/mobil.png" alt="mobil" width="300px" class="img-fluid">
+          <img src="admin/image/<?= $value['gambar'] ?>" alt="mobil" width="300px" class="img-fluid">
         </div>
         <div class="col-8">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" data-bs-toggle="tab" href="#paket1">Paket 1</a>
+              <a class="nav-link active" data-bs-toggle="tab" href="#paket1" style="color: black;">Paket 1</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" href="#paket2">Paket 2</a>
+              <a class="nav-link" data-bs-toggle="tab" href="#paket2" style="color: black;">Paket 2</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" href="#paket3">Paket 3</a>
+              <a class="nav-link" data-bs-toggle="tab" href="#paket3" style="color: black;">Paket 3</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" href="#paket4">Deskripsi Mobil</a>
+              <a class="nav-link" data-bs-toggle="tab" href="#paket4" style="color: black;">Deskripsi Mobil</a>
             </li>
           </ul>
           <form class="card-body tab-content">
@@ -59,45 +60,68 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
                 <li class="list-group-item">Bensin Sendiri</li>
                 <li class="list-group-item">Mobil Ambil Sendiri</li>
               </ol>
+              <ul class="list-group mt-3">
+                <li class="list-group-item"> Rp. <?= $value['harga_p1'] ?> </li>
+              </ul>
               </p>
+              <a href="youtube.com">
+                <button class="btn btn-success">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  Pesan Paket 1
+                </button>
+              </a>
 
             </div>
             <div class="tab-pane" id="paket2">
+              <p>
               <ol class="list-group list-group-numbered">
-                <p>
-                  <li class="list-group-item">Dengan Supir</li>
-                  <li class="list-group-item">Bensin Sendiri</li>
-                  <li class="list-group-item">Mobil Ambil Sendiri</li>
+                <li class="list-group-item">Dengan Supir</li>
+                <li class="list-group-item">Bensin Sendiri</li>
+                <li class="list-group-item">Mobil Ambil Sendiri</li>
               </ol>
+              <ul class="list-group mt-3">
+                <li class="list-group-item"> Rp. <?= $value['harga_p2'] ?> </li>
+              </ul>
               </p>
+              <button class="btn btn-success" type="submit">
+                <i class="fa-brands fa-whatsapp"></i>
+                Pesan Paket 2
+              </button>
             </div>
             <div class="tab-pane" id="paket3">
+              <p>
               <ol class="list-group list-group-numbered">
-                <p>
-                  <li class="list-group-item">Dengan Supir</li>
-                  <li class="list-group-item">Bensin Disediakan</li>
-                  <li class="list-group-item">Di Jemput</li>
+                <li class="list-group-item">Dengan Supir</li>
+                <li class="list-group-item">Bensin Disediakan</li>
+                <li class="list-group-item">Di Jemput</li>
               </ol>
+              <ul class="list-group mt-3">
+                <li class="list-group-item"> Rp. <?= $value['harga_p2'] ?> </li>
+              </ul>
               </p>
+              <button class="btn btn-success" type="submit">
+                <i class="fa-brands fa-whatsapp"></i>
+                Pesan Paket 3
+              </button>
             </div>
             <div class="tab-pane" id="paket4">
               <ol class="list-group list-group-numbered">
-                <p class="pt-3">
-                  Mobil keluarga yang sangat bersahabat
-                  <!-- <li class="list-group-item">Mobil keluarga yang sangat bersahabat</li> -->
+                <p class="pt-1">
+                <ul class="list-group">
+                  <li class="list-group-item"> Plate <?= $value['plate'] ?> </li>
+                </ul>
+                <ul class="list-group mt-1">
+                  <li class="list-group-item"> <?= $value['deskripsi'] ?> </li>
+                </ul>
                 </p>
               </ol>
             </div>
-            <button class="btn btn-success" type="submit">
-              <i class="fa-brands fa-whatsapp"></i>
-              Pesan Sekarang
-            </button>
           </form>
         </div>
       </div>
-  </section>
-
-  <br>
+    </section>
+    <br>
+  <?php endforeach ?>
 
 </main><!-- End #main -->
 <?php
