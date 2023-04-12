@@ -34,10 +34,89 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
 
     <section class="container border" style="height: 450px;">
       <div class="row">
-        <div class="col-4">
-          <img src="admin/image/<?= $value['gambar'] ?>" alt="mobil" width="300px" class="img-fluid">
-        </div>
-        <div class="col-8">
+        <!-- <div class="col-4">
+          <img src="admin/image/<?= $value['gambar'] ?>"alt="mobil" width="300px" class="img-fluid">
+        </div> -->
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-3">
+              <img src="admin/image/<?= $value['gambar'] ?>" alt="mobil" width="300px" class="img-fluid">
+            </div>
+            <div class="col-3">
+              <p>Paket 1</p>
+              <p>
+              <ol class="list-group" style="font-size:medium;">
+                <li class="list-group-item">Tanpa Supir</li>
+                <li class="list-group-item">Bensin Sendiri</li>
+                <li class="list-group-item">Mobil Ambil Sendiri</li>
+              </ol>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>Paket 2</p>
+              <p>
+              <ol class="list-group">
+                <li class="list-group-item">Dengan Supir</li>
+                <li class="list-group-item">Bensin Sendiri</li>
+                <li class="list-group-item">Mobil Ambil Sendiri</li>
+              </ol>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>Paket 3</p>
+              <p>
+              <ol class="list-group">
+                <li class="list-group-item">Dengan Supir</li>
+                <li class="list-group-item">Bensin Disediakan</li>
+                <li class="list-group-item">Di Jemput</li>
+              </ol>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <ul class="list-group">
+                <li class="list-group-item"> Plate <?= $value['plate'] ?> </li>
+              </ul>
+            </div>
+            <div class="col-9">
+              <ul class="list-group">
+                <li class="list-group-item"> <?= $value['deskripsi'] ?> </li>
+              </ul>
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+          <div class="container text-center mt-4">
+            <div class="row">
+              <div class="col-3">
+              </div>
+              <div class="col-3">
+                <a href="youtube.com">
+                  <button class="btn btn-success">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Pesan Paket 1
+                  </button>
+                </a>
+              </div>
+              <div class="col-3">
+                <a href="youtube.com">
+                  <button class="btn btn-success">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Pesan Paket 2
+                  </button>
+                </a>
+              </div>
+              <div class="col-3">
+                <a href="youtube.com">
+                  <button class="btn btn-success">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Pesan Paket 3
+                  </button>
+                </a>
+              </div>
+              <!-- <div class="col-8">
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link active" data-bs-toggle="tab" href="#paket1" style="color: black;">Paket 1</a>
@@ -117,8 +196,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
               </ol>
             </div>
           </form>
-        </div>
-      </div>
+        </div> -->
+            </div>
     </section>
     <br>
   <?php endforeach ?>
