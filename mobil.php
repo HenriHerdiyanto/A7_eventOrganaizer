@@ -1,6 +1,8 @@
 <?php
 include "header.php";
 $result = mysqli_query($koneksi, "SELECT * FROM mobil");
+$link_to_google = "https://google.com";
+
 ?>
 
 
@@ -93,7 +95,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
               <div class="col-3">
               </div>
               <div class="col-3">
-                <a href="youtube.com">
+                <a href='<?php echo $link_to_google; ?>' target='_blank'>
                   <button class="btn btn-success">
                     <i class="fa-brands fa-whatsapp"></i>
                     Pesan Paket 1
@@ -101,7 +103,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
                 </a>
               </div>
               <div class="col-3">
-                <a href="youtube.com">
+                <a href='<?php echo $link_to_google; ?>' target='_blank'>
                   <button class="btn btn-success">
                     <i class="fa-brands fa-whatsapp"></i>
                     Pesan Paket 2
@@ -109,7 +111,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM mobil");
                 </a>
               </div>
               <div class="col-3">
-                <a href="youtube.com">
+                <a href='<?php echo $link_to_google; ?>' target='_blank'>
                   <button class="btn btn-success">
                     <i class="fa-brands fa-whatsapp"></i>
                     Pesan Paket 3
