@@ -9,13 +9,16 @@
   }
   .judul{
     /* width: 100px; */
-  padding-top: 2%;
-  padding-bottom: 2%;
+  /* padding-top: 2%;
+  padding-bottom: 2%; */
+  padding: 10px 100px ;
+  
+  margin:10px;
   border: 5px solid black;
   border-radius:10px;
-  margin-top:5rem;
+  /* margin-top:5rem;
   margin-left:auto;
-  margin-right:auto;
+  margin-right:auto; */
   background-color:rgb(255,255,255);
   font-family: Oswald;
   font-size:3rem;
@@ -82,7 +85,7 @@
 
   <section class="header">
     <div class="d-flex justify-content-center">
-      <div class=" text-white text-center w-50 h-25">  
+      <div class=" text-white text-center w-auto ">  
           <h1 class="judul ">Layanan Umroh & Haji</h1>
           <!-- <hr style="width:20%;height:5px;border-width:0;color:white;background-color:gray; margin-left: auto; margin-right: auto;" > -->
       </div>
