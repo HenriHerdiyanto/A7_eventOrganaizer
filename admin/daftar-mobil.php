@@ -18,7 +18,9 @@
                                     <th>Plate Mobil</th>
                                     <th>Deskripsi Mobil</th>
                                     <th>Gambar Mobil</th>
-                                    <th>Harga Sewa</th>
+                                    <th>Harga Paket 1</th>
+                                    <th>Harga Paket 2</th>
+                                    <th>Harga Paket 3</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,7 +37,10 @@
                                         <td><?php echo $data["plate"]; ?></td>
                                         <td><?php echo $data["deskripsi"]; ?></td>
                                         <td><img src="image/<?php echo $data["gambar"]; ?>" alt="" width="100px"></td>
-                                        <td><?php echo $data["harga"]; ?></td>
+                                        <td><?php echo $data["harga_p1"]; ?></td>
+                                        <td><?php echo $data["harga_p2"]; ?></td>
+                                        <td><?php echo $data["harga_p3"]; ?></td>
+
                                         <td>
                                             <a href="edit-mobil.php?id=<?php echo $data["id_mobil"]; ?>" class="btn btn-warning">Edit</a>
                                             <a href="delete-mobil.php?id=<?php echo $data["id_mobil"]; ?>" class="btn btn-danger">Delete</a>
