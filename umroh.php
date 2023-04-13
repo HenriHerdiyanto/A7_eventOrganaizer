@@ -8,22 +8,83 @@
     background-image:url('admin/assets/img/header-umroh.jpg');
   }
   .judul{
-    /* width: 100px;
-  padding: 10px; */
-  border: 5px solid gray;
+    /* width: 100px; */
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border: 5px solid black;
+  border-radius:10px;
   margin-top:5rem;
   margin-left:auto;
   margin-right:auto;
-  background-color:rgb(0,0,0,0.5)
+  background-color:rgb(255,255,255);
+  font-family: Oswald;
+  font-size:3rem;
+  font-weight:bold;
+   animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+  text-shadow: 10px 10px #F0F0F0;
   }
+
+
+@keyframes Color{
+  0%{
+    color:#000;
+  }
+  
+  40%{
+    color:#00BFFF;
+  }
+  60%{
+    color:#AC92EC;
+  }
+  100%{
+    color:#000;
+  }
+}
+
+@-moz-keyframes Color{
+  0%{
+    color:#000;
+  }
+  
+  40%{
+    color:#00BFFF;
+  }
+  60%{
+    color:#AC92EC;
+  }
+  100%{
+    color:#000;
+  }
+}
+
+@-webkit-keyframes Color{
+  0%{
+    color:#000;
+  }
+
+  40%{
+    color:#00BFFF;
+  }
+
+  60%{
+    color:#AC92EC;
+  }
+  100%{
+    color:#000;
+  }
+}
+
+
+
 </style>
 <main id="main">
 
   <section class="header">
-    <div class="text-center">
-      <div class=" text-white  w-50 h-25">  
-          <h1 class="judul">Paket Umroh & Haji</h1>
-          <hr style="width:20%;height:5px;border-width:0;color:white;background-color:gray; margin-left: auto; margin-right: auto;" >
+    <div class="d-flex justify-content-center">
+      <div class=" text-white text-center w-50 h-25">  
+          <h1 class="judul ">Layanan Umroh & Haji</h1>
+          <!-- <hr style="width:20%;height:5px;border-width:0;color:white;background-color:gray; margin-left: auto; margin-right: auto;" > -->
       </div>
     </div>
   </section>
@@ -38,7 +99,7 @@
             <div class="card-body">
               <div class="text-center">
                 <h3 class="card-title">Umroh Regular </h3><br>
-                <a href="#" class="btn btn-primary form-control">Lihat Paket</a>
+                <a href="umroh-paket.php?p=1" class="btn btn-primary form-control">Lihat Layanan</a>
               </div>
             </div>
           </div>
@@ -49,7 +110,7 @@
             <div class="card-body">
               <div class="text-center">
                 <h3 class="card-title">Umroh & Tour</h3><br>               
-                <a href="#" class="btn btn-primary form-control">Lihat Paket</a>
+                <a href="umroh-paket.php?p=2" class="btn btn-primary form-control">Lihat Layanan</a>
               </div>
             </div>
           </div>
@@ -60,7 +121,7 @@
             <div class="card-body">
               <div class="text-center">
                 <h3 class="card-title">Halal Tour</h3><br>             
-                <a href="#" class="btn btn-primary form-control ">Lihat Paket</a>
+                <a href="umroh-paket.php?p=3" class="btn btn-primary form-control ">Lihat Layanan</a>
               </div>
             </div>
           </div>
@@ -71,7 +132,7 @@
             <div class="card-body">
               <div class="text-center">
                 <h3 class="card-title">Haji Plus</h3><br>            
-                <a href="#" class="btn btn-primary form-control">Lihat Paket</a>
+                <a href="umroh-paket.php?p=4" class="btn btn-primary form-control">Lihat Layanan</a>
               </div>
             </div>
           </div>

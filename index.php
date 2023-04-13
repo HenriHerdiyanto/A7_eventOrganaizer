@@ -93,7 +93,7 @@
               </svg>
               <i class="bx bx-tachometer"></i>
             </div>
-            <h4><a href="umroh.php">Paket Umroh</a></h4>
+            <h4><a href="umroh.php">Layanan Umroh</a></h4>
             <p>Agency kami sangat terpercaya dalam memberangkatkan jemaah</p>
           </div>
         </div>
