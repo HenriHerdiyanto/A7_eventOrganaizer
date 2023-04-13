@@ -55,11 +55,11 @@ $query = mysqli_query($koneksi, "SELECT * FROM mobil WHERE id_mobil = '$_GET[id]
                                 <img src="image/<?php echo $data['gambar']; ?>" alt=""><br>
                                 <input type="file" name="gambar" class="form-control"><br>
                                 <label for="">Harga Paket 1</label>
-                                <input type="text" name="harga_pkt1" id="harga_pkt1" class="form-control"><br>
+                                <input type="text" name="harga_pkt1" id="harga_pkt1" class="form-control" value="<?php echo $data['harga_p1'] ?>"><br>
                                 <label for="">Harga Paket 2</label>
-                                <input type="text" name="harga_pkt2" id="harga_pkt2" class="form-control"><br>
+                                <input type="text" name="harga_pkt2" id="harga_pkt2" class="form-control" value="<?php echo $data['harga_p2'] ?>"><br>
                                 <label for="">Harga Paket 3</label>
-                                <input type="text" name="harga_pkt3" id="harga_pkt3" class="form-control"><br>
+                                <input type="text" name="harga_pkt3" id="harga_pkt3" class="form-control" value="<?php echo $data['harga_p3'] ?>"><br>
 
                                 <br>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

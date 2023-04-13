@@ -52,6 +52,9 @@ $link_to_google = "https://google.com";
                 <li class="list-group-item">Bensin Sendiri</li>
                 <li class="list-group-item">Mobil Ambil Sendiri</li>
               </ol>
+              <ol class="list-group mt-2">
+                <li class="list-group-item">Rp. <?php echo $value['harga_p1'] ?></li>
+              </ol>
               </p>
             </div>
             <div class="col-3">
@@ -62,6 +65,9 @@ $link_to_google = "https://google.com";
                 <li class="list-group-item">Bensin Sendiri</li>
                 <li class="list-group-item">Mobil Ambil Sendiri</li>
               </ol>
+              <ol class="list-group mt-2">
+                <li class="list-group-item">Rp. <?php echo $value['harga_p2'] ?></li>
+              </ol>
               </p>
             </div>
             <div class="col-3">
@@ -71,6 +77,9 @@ $link_to_google = "https://google.com";
                 <li class="list-group-item">Dengan Supir</li>
                 <li class="list-group-item">Bensin Disediakan</li>
                 <li class="list-group-item">Di Jemput</li>
+              </ol>
+              <ol class="list-group mt-2">
+                <li class="list-group-item">Rp. <?php echo $value['harga_p3'] ?></li>
               </ol>
               </p>
             </div>
