@@ -108,32 +108,32 @@ $sql_berangkat = mysqli_query($koneksi,"SELECT * FROM berangkat where id_paket =
             </div>
             <div class="col-sm-7">
                 <h1><?=$sql_call['nama']?></h1><hr>
-                <h4>Fasilitas</h4>
+                <h4>Fasilitas <i class="bi bi-card-checklist text-primary"></i></h4>
                 <ul>
                     <?php
                     foreach($sql_fasilitas as $value => $key){
-                        echo "<li>".$key['fasilitas']."</li>";
+                        echo "<li class='d-inline me-5'>".$key['fasilitas']."</li>";
                      }
                      ?>
                 </ul><br>
 
-                <h4>Paket Hotel</h4>
+                <h4>Paket Hotel <i class="bi bi-building-fill text-primary"></i></h4>
                 <ul>
                     <?php
                     foreach($sql_hotel as $value => $key){
-                        echo "<li>".$key['nama']."</li>";
+                        echo "<li class='d-inline me-5'>".$key['nama']."</li>";
                      }
                      ?>
                 </ul><br>
 
-                <h4>Tanggal Keberangkatan</h4>
+                <h4>Tanggal Keberangkatan <i class="bi bi-calendar-week text-primary"></i></h4><br>
                 <ul>
                     <?php
                     foreach($sql_berangkat as $value => $key){
-                        echo "<li>".$key['tanggal']."</li>";
+                        echo "<li class='d-inline me-5 border p-3 rounded bg-primary text-white fw-bold'>".$key['tanggal']."</li>";
                      }
                      ?>
-                </ul>
+                </ul><br>
                 <hr><h3>Deskripsi</h3>
                 <p><?=$sql_call['deskripsi']?></p>
                 <div class="text-end text-danger">

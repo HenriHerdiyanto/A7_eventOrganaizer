@@ -10,7 +10,7 @@ include "config.php";
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Techie Bootstrap Template - Index</title>
+    <title>A7 Event Organizer</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -61,6 +61,14 @@ include "config.php";
                         <ul>
                             <li><a href="eo.php">Event Terbaru</a></li>
                             <li><a href="daftar-Eo.php">Daftar Event</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="umroh.php"><span>Layanan Umroh</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="umroh-paket.php?p=1">Umroh Regular</a></li>
+                            <li><a href="umroh-paket.php?p=2">Umroh & Tour</a></li>
+                            <li><a href="umroh-paket.php?p=3">Halal Tour</a></li>
+                            <li><a href="umroh-paket.php?p=4">Haji plus</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
