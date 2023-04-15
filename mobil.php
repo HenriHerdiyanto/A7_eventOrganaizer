@@ -41,10 +41,10 @@ $link_to_google = "https://google.com";
         </div> -->
         <div class="container text-center">
           <div class="row">
-            <div class="col-3">
+            <div class="col-sm-3">
               <img src="admin/image/<?= $value['gambar'] ?>" alt="mobil" width="300px" class="img-fluid">
             </div>
-            <div class="col-3">
+            <div class="col-sm-3">
               <p>Paket 1</p>
               <p>
               <ol class="list-group" style="font-size:medium;">
@@ -57,7 +57,7 @@ $link_to_google = "https://google.com";
               </ol>
               </p>
             </div>
-            <div class="col-3">
+            <div class="col-sm-3">
               <p>Paket 2</p>
               <p>
               <ol class="list-group">
@@ -70,7 +70,7 @@ $link_to_google = "https://google.com";
               </ol>
               </p>
             </div>
-            <div class="col-3">
+            <div class="col-sm-3">
               <p>Paket 3</p>
               <p>
               <ol class="list-group">
