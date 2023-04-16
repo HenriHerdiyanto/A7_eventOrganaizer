@@ -8,7 +8,7 @@ $link_to_google = "https://google.com";
 
 
 <main id="main">
-  <section class="container static">
+  <!-- <section class="container static">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -30,7 +30,7 @@ $link_to_google = "https://google.com";
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </section>
+  </section> -->
 
   <?php foreach ($result as $key => $value) : ?>
 
