@@ -106,43 +106,43 @@ $sql_berangkat = mysqli_query($koneksi,"SELECT * FROM berangkat where id_paket =
             <div class="col-sm-5">
                  <img src="admin/assets/img/umroh/<?=$sql_call['foto']?>" class=" w-100 img-fluid rounded" alt="">
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-7 border rounded p-4">
                 <h1><?=$sql_call['nama']?></h1><hr>
-                <h4>Fasilitas <i class="bi bi-card-checklist text-primary"></i></h4>
-                <ul>
+                <h5><i class="bi bi-card-checklist"></i> Fasilitas </h5>
+                <ul style="list-style-image: url(assets/img/check.png)" class="fs-6">
                     <?php
                     foreach($sql_fasilitas as $value => $key){
-                        echo "<li class='d-inline me-5'>".$key['fasilitas']."</li>";
+                        echo "<li class=' me-5'><h5>".$key['fasilitas']."</h5></li>";
                      }
                      ?>
                 </ul><br>
 
-                <h4>Paket Hotel <i class="bi bi-building-fill text-primary"></i></h4>
+                <!-- <h4>Paket Hotel <i class="bi bi-building-fill text-primary"></i></h4>
                 <ul>
                     <?php
                     foreach($sql_hotel as $value => $key){
-                        echo "<li class='d-inline me-5'>".$key['nama']."</li>";
+                        echo "<li class=' me-5'>".$key['nama']."</li>";
                      }
                      ?>
+                </ul><br> -->
+
+                <h5><i class="bi bi-calendar-week "></i> Periode Pendaftaran</h5>
+                <ul style="list-style:none">
+                    <li class="text-primary"><h6><?=$sql_call['periode']?></h6></li>
                 </ul><br>
 
-                <h4>Tanggal Keberangkatan <i class="bi bi-calendar-week text-primary"></i></h4><br>
-                <ul>
-                    <?php
-                    foreach($sql_berangkat as $value => $key){
-                        echo "<li class='d-inline me-5 border p-3 rounded bg-primary text-white fw-bold'>".$key['tanggal']."</li>";
-                     }
-                     ?>
-                </ul><br>
-                <hr><h3>Deskripsi</h3>
+                <h5><i class="bi bi-calendar-week"></i> Tanggal Keberangkatan</h5>
+                <ul style="list-style:none">
+                    <li class="text-primary"><h6><?=$sql_call['berangkat']?></h6></li>
+                </ul>
+                <hr>
+                <h5>Deskripsi Umroh</h5>
                 <p><?=$sql_call['deskripsi']?></p>
-                <div class="text-end text-danger">
-                    <h2 class="fw-bold"><?= "Rp ".number_format($sql_call['harga'],0,",",".")?></h2>
-                </div>
+                <h2 class="fw-bold text-end text-danger"><?php echo "Rp ".number_format($sql_call['harga'],0,",",".")?></h2>
+                <a href=""><div class="btn btn-danger form-control fw-bold">DAFTAR SEKARANG</div></a>
+               
             </div>
         </div>
-    
-
     </div>
   </section><!-- End About Section -->
 

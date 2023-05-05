@@ -16,7 +16,7 @@
                                         <th>Nama Paket</th>
                                         <th>Layanan</th>
                                         <th>Fasilitas</th>
-                                        <th>Paket Hotel</th>
+                                        <th>Pendaftaran</th>
                                         <th>Keberangkatan</th>
                                         <th>Foto</th>
                                         <th>harga</th>
@@ -34,35 +34,38 @@
                                         $id_paket = $data['id'];
 
                                         $sql_fasilitas = mysqli_query($koneksi,"SELECT * FROM fasilitas where id_paket = $id_paket ");
-                                        $sql_hotel = mysqli_query($koneksi,"SELECT * FROM hotel where id_paket = $id_paket ");
-                                        $sql_berangkat = mysqli_query($koneksi,"SELECT * FROM berangkat where id_paket = $id_paket ");
+                                        // $sql_hotel = mysqli_query($koneksi,"SELECT * FROM hotel where id_paket = $id_paket ");
+                                        // $sql_berangkat = mysqli_query($koneksi,"SELECT * FROM berangkat where id_paket = $id_paket ");
                                         
                                     ?>
-                                        <tr class="text-center">
+                                        <tr class="text-start">
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $data["nama"]; ?></td>
                                             <td><?php echo $data["layanan"]; ?></td>
                                             <td><?php
                                                  foreach($sql_fasilitas as $value => $key){
-                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['fasilitas']."</div>";
+                                                    echo "<ul style='list-style:none;padding-left:0;'>";
+                                                    echo "<li class='border-bottom'>".$key['fasilitas']."</li>";
+                                                    echo "</ul>";
                                                  }
                                                  ?>
                                             </td>
                                             <td><?php
-                                                 foreach($sql_hotel as $value => $key){
-                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['nama']."</div>";
-                                                 }
+                                                //  foreach($sql_hotel as $value => $key){
+                                                //     echo "<div class='bg-secondary text-white border border-white'>".$key['nama']."</div>";
+                                                //  }
+                                                echo $data['berangkat'];
+                                           
                                                  ?>
                                             </td>
                                             <td><?php
-                                                 foreach($sql_berangkat as $value => $key){
-                                                    echo "<div class='bg-secondary text-white border border-white'>".$key['tanggal']."</div>";
-                                                 }
+                                                //  foreach($sql_berangkat as $value => $key){ echo "<div class='bg-secondary text-white border border-white'>".$key['tanggal']."</div>";}
+                                                    echo $data['periode'];
                                                  ?>
                                             </td>
 
                                             <td><a href="assets/img/umroh/<?php echo $data["foto"]; ?>">Priview</a></td>
-                                            <td><?php echo number_format($data["harga"],0,",",".") ?></td>
+                                            <td><?php echo "Rp ".number_format($data["harga"],0,",",".") ?></td>
                                             <td>
                                                 <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=edit" class="btn btn-warning ">Edit</a>
                                                 <a href="posting-umroh.php?id=<?php echo $data["id"]; ?>&proses=delete" class="btn btn-danger">Delete</a>

@@ -35,6 +35,11 @@ if (isset($_GET['id'])) {
         $layanan        = $sql_call['layanan'];
         $deskripsi      = $sql_call['deskripsi'];
         $harga          = $sql_call['harga'];
+        $berangkat      = $sql_call['berangkat'];
+        $periode        = $sql_call['periode'];
+        $periode        = explode(" -- ",$periode);
+        $count = count($periode);
+      
 
         // $fasilitas      = $_sql_call['fasilitas'];
         // $hotel          = $_sql_call['hotel'];
@@ -78,16 +83,19 @@ if (isset($_POST['input'])) {
     $layanan        = $_POST['layanan'];
     $deskripsi      = $_POST['desk'];
     $harga          = $_POST['harga'];
+    $berangkat      = $_POST['berangkat'];
     $harga_umroh    = str_replace(".", "", $harga);
     $fasilitas      = $_POST['fasilitas'];
-    $hotel          = $_POST['hotel'];
-    $berangkat      = $_POST['berangkat'];
+    // $hotel          = $_POST['hotel'];
+    $awal           = $_POST['awal'];
+    $akhir          = $_POST['akhir'];
+    $periode        = $awal." -- ".$akhir;
 
     $direktori = "assets/img/umroh/";
     $fileName = $_FILES['foto']['name'];
     move_uploaded_file($_FILES['foto']['tmp_name'], $direktori . $fileName);
 
-    $sql_input = mysqli_query($koneksi, "INSERT INTO paket SET nama='$nama', deskripsi='$deskripsi', layanan='$layanan', harga='$harga_umroh', foto='$fileName', kode='$kode'");
+    $sql_input = mysqli_query($koneksi, "INSERT INTO paket SET  nama='$nama', deskripsi='$deskripsi', layanan='$layanan', harga='$harga_umroh', berangkat='$berangkat', periode='$periode', foto='$fileName', kode='$kode'");
 
     if ($sql_input) {
         $sql_umroh = mysqli_query($koneksi, "SELECT * FROM paket where kode = '$kode'");
@@ -97,23 +105,23 @@ if (isset($_POST['input'])) {
             echo $value . "<br>";
             $sql = mysqli_query($koneksi, "INSERT INTO fasilitas SET fasilitas='$value', id_paket='$number'");
         }
-        foreach ($hotel as $key => $value) {
-            echo $value . "<br>";
-            $sql = mysqli_query($koneksi, "INSERT INTO hotel SET nama='$value', id_paket='$number'");
-        }
-        foreach ($berangkat as $key => $value) {
-            echo $value . "<br>";
-            $sql = mysqli_query($koneksi, "INSERT INTO berangkat SET tanggal='$value', id_paket='$number'");
-        }
+        // foreach ($hotel as $key => $value) {
+        //     echo $value . "<br>";
+        //     $sql = mysqli_query($koneksi, "INSERT INTO hotel SET nama='$value', id_paket='$number'");
+        // }
+        // foreach ($berangkat as $key => $value) {
+        //     echo $value . "<br>";
+        //     $sql = mysqli_query($koneksi, "INSERT INTO berangkat SET tanggal='$value', id_paket='$number'");
+        // }
         echo "<script type='text/javascript'> 
-    alert('Input Data Berhasil');
-    window.location.replace('list-umroh.php');
-    </script>";
+        alert('Input Data Berhasil');
+        window.location.replace('list-umroh.php');
+        </script>";
         exit;
     } else {
         echo "<script type='text/javascript'> 
-    alert('Input Data Gagal');
-    window.location.replace('daftar-umroh.php');
+        alert('Input Data Gagal');
+        window.location.replace('?pesan=gagal');
       </script>";
         exit;
     }
@@ -123,8 +131,12 @@ if (isset($_POST['input'])) {
     $deskripsi      = $_POST['desk'];
     $harga          = $_POST['harga'];
     $harga_umroh    = str_replace(".", "", $harga);
+    $awal           = $_POST['awal'];
+    $akhir          = $_POST['akhir'];
+    $periode        = $awal." -- ".$akhir;
+
+    // $hotel          = $_POST['hotel'];
     $fasilitas      = $_POST['fasilitas'];
-    $hotel          = $_POST['hotel'];
     $berangkat      = $_POST['berangkat'];
 
     $direktori = "assets/img/umroh/";
@@ -134,38 +146,38 @@ if (isset($_POST['input'])) {
         $foto_umroh = ", foto='$fileName'";
     }
 
-    $sql_edit = mysqli_query($koneksi, "UPDATE paket SET nama='$nama', deskripsi='$deskripsi', layanan='$layanan', harga='$harga_umroh' " . $foto_umroh . "  WHERE id = $id_umroh");
+    $sql_edit = mysqli_query($koneksi, "UPDATE paket SET  nama='$nama', deskripsi='$deskripsi', layanan='$layanan', harga='$harga_umroh', berangkat='$berangkat', periode='$periode' " . $foto_umroh . "  WHERE id = $id_umroh");
 
     if ($sql_edit) {
         $sql_fasilitas = mysqli_query($koneksi, "SELECT * FROM fasilitas where id_paket = $id_umroh ");
-        $sql_hotel = mysqli_query($koneksi, "SELECT * FROM hotel where id_paket = $id_umroh ");
-        $sql_berangkat = mysqli_query($koneksi, "SELECT * FROM berangkat where id_paket = $id_umroh ");
+        // $sql_hotel = mysqli_query($koneksi, "SELECT * FROM hotel where id_paket = $id_umroh ");
+        // $sql_berangkat = mysqli_query($koneksi, "SELECT * FROM berangkat where id_paket = $id_umroh ");
 
         foreach ($sql_fasilitas as $value => $key) {
             $sql_delete = mysqli_query($koneksi, "DELETE FROM fasilitas where id_paket = $id_umroh");
         }
-        foreach ($sql_hotel as $value => $key) {
-            $sql_delete = mysqli_query($koneksi, "DELETE FROM hotel where id_paket = $id_umroh");
-        }
-        foreach ($sql_berangkat as $value => $key) {
-            $sql_delete = mysqli_query($koneksi, "DELETE FROM berangkat where id_paket = $id_umroh");
-        }
+        // foreach ($sql_hotel as $value => $key) {
+        //     $sql_delete = mysqli_query($koneksi, "DELETE FROM hotel where id_paket = $id_umroh");
+        // }
+        // foreach ($sql_berangkat as $value => $key) {
+        //     $sql_delete = mysqli_query($koneksi, "DELETE FROM berangkat where id_paket = $id_umroh");
+        // }
 
         foreach ($fasilitas as $key => $value) {
             if ($value != "") {
                 $sql = mysqli_query($koneksi, "INSERT INTO fasilitas SET fasilitas='$value', id_paket='$id_umroh'");
             }
         }
-        foreach ($hotel as $key => $value) {
-            if ($value != "") {
-                $sql = mysqli_query($koneksi, "INSERT INTO hotel SET nama='$value', id_paket='$id_umroh'");
-            }
-        }
-        foreach ($berangkat as $key => $value) {
-            if ($value != "") {
-                $sql = mysqli_query($koneksi, "INSERT INTO berangkat SET tanggal='$value', id_paket='$id_umroh   '");
-            }
-        }
+        // foreach ($hotel as $key => $value) {
+        //     if ($value != "") {
+        //         $sql = mysqli_query($koneksi, "INSERT INTO hotel SET nama='$value', id_paket='$id_umroh'");
+        //     }
+        // }
+        // foreach ($berangkat as $key => $value) {
+        //     if ($value != "") {
+        //         $sql = mysqli_query($koneksi, "INSERT INTO berangkat SET tanggal='$value', id_paket='$id_umroh   '");
+        //     }
+        // }
         echo "<script type='text/javascript'> 
         alert('Edit Data Berhasil');
         window.location.replace('list-umroh.php');
@@ -174,7 +186,7 @@ if (isset($_POST['input'])) {
     } else {
         echo "<script type='text/javascript'> 
         alert('Edit Data Gagal');
-       
+        window.location.replace('?pesan=gagal');
         </script>";
         exit;
     }
@@ -205,7 +217,7 @@ if (isset($_POST['input'])) {
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="container justify-content-center">
                         <div class="card h-auto">
-                            <h5 class="card-header  bg-primary bg-gradient text-light">Input Data Umroh</h5>
+                            <h5 class="card-header  bg-primary bg-gradient text-light">Posting Paket Umroh</h5>
                             <?php $random = rand(); ?>
                             <input type="hidden" name="kode" value="<?php echo $random ?>">
                             <div class="card-body mt-4 mb-4">
@@ -267,7 +279,7 @@ if (isset($_POST['input'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <!-- <div class="row justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
                                         <label class="col-form-label">Paket Hotel</label>
                                     </div>
@@ -298,12 +310,30 @@ if (isset($_POST['input'])) {
                                             } ?>
                                         </div>
                                     </div>
+                                </div> -->
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-3 col-md-6 mb-1">
+                                        <label class="col-form-label">Periode Pendaftaran</label>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 mb-3">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <?php 
+                                            //   foreach ($periode as $waktu ){
+                                            //      $coba = $waktu;
+                                            //      echo '<input type="text" class="form-control" placeholder="dimulai" name="awal" value="'.$coba.'">';
+                                            //     }
+                                                ?>
+                                            <input type="text" class="form-control" placeholder="berakhir" name="awal" value="<?=$periode[0]?>"> 
+                                                <span class="input-group-text"><div class="fs-6">--</div></span>
+                                            <input type="text" class="form-control" placeholder="berakhir" name="akhir" value="<?=$periode[1]?>"> 
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Tanggal Keberangkatan</label>
+                                        <label for="berangkat" class="col-form-label">Tanggal Keberangkatan</label>
                                     </div>
-                                    <div class="col-xl-6 col-md-6 mb-3">
+                                    <!-- <div class="col-xl-6 col-md-6 mb-3">
                                         <div class="field_waktu">
                                             <div class="input-group input-group-sm mb-3 ">
                                                 <input type="date" name="berangkat[]" class="form-control" value="<?php echo $berangkat ?>" />
@@ -327,6 +357,11 @@ if (isset($_POST['input'])) {
                                             } ?>
 
                                         </div>
+                                    </div> -->
+                                    <div class="col-xl-6 col-md-6 mb-3">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="date" name="berangkat" id="berangkat" value="<?=$berangkat?>" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
@@ -334,7 +369,7 @@ if (isset($_POST['input'])) {
                                         <label class="col-form-label">Deskripsi</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-4">
-                                        <textarea name="desk" id="summernote"><?php echo $deskripsi ?></textarea>
+                                        <textarea name="desk" id="summernote" placeholder="ok"><?php echo $deskripsi ?></textarea>
                                     </div>
                                 </div>
                                 <?php if ($id_umroh != "" && $foto != "") { ?>
@@ -351,7 +386,7 @@ if (isset($_POST['input'])) {
                                 <?php } ?>
                                 <div class="row justify-content-center">
                                     <div class="col-xl-3 col-md-6 mb-1">
-                                        <label class="col-form-label">Foto Paket</label>
+                                        <label class="col-form-label">Foto Cover</label>
                                     </div>
                                     <div class="col-xl-6 col-md-6 mb-1">
                                         <div class="input-group input-group-sm mb-3 ">
@@ -377,8 +412,8 @@ if (isset($_POST['input'])) {
                                         echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='input'>Input</button>";
                                         echo "</div>";
                                     } else {
-                                        echo "<div class='col-xl-2 col-md-6 mb-5 text-end  >";
-                                        echo "<a href='data-karyawan.php' class='text-decoration-none text-light'><button class='btn btn-danger form-control fw-bold text-uppercase'>Batal</button></a>";
+                                        echo "<div class='col-xl-2 col-md-6 mb-5 text-end ' >";
+                                        echo "<a href='list-umroh.php' class='text-decoration-none text-light'><div class='btn btn-danger form-control fw-bold text-uppercase'>Batal</div></a>";
                                         echo "</div>";
                                         echo "<div class='col-xl-2 col-md-6 mb-5 text-end ' >";
                                         echo "<button type='submit' class='btn btn-primary form-control fw-bold text-uppercase' name='edit'>Simpan</button>";
@@ -386,15 +421,6 @@ if (isset($_POST['input'])) {
                                     }
                                     ?>
                                 </div>
-                                <?php
-                                $result = mysqli_query($koneksi, "SELECT * FROM umroh");
-                                $keynames = array('foo', 'bar', 'baz');
-                                $idx = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $dataArray[$keynames[$idx]] = $row;
-                                    $idx++;
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
@@ -427,47 +453,47 @@ if (isset($_POST['input'])) {
 
     });
 
-    $(document).ready(function() {
-        var max_fields = 10;
-        var add_input_button = $('.add_input_waktu');
-        var field_wrapper = $('.field_waktu');
-        var new_field_html = '<div><div class="input-group input-group-sm mb-2"><input type="date" name="berangkat[]" class=" form-control"  value=""/><a href="javascript:void(0);" class="remove_input_button" title="Remove field">&nbsp;&nbsp;&nbsp;<i class="bi bi-dash-circle text-danger fs-4"></i></a></div></div>';
-        var input_count = 1;
-        // Add button dynamically
-        $(add_input_button).click(function() {
-            if (input_count < max_fields) {
-                input_count++;
-                $(field_wrapper).append(new_field_html);
-            }
-        });
-        // Remove dynamically added button
-        $(field_wrapper).on('click', '.remove_input_button', function(e) {
-            e.preventDefault();
-            $(this).parent('div').remove();
-            input_count--;
-        });
-    });
+    // $(document).ready(function() {
+    //     var max_fields = 10;
+    //     var add_input_button = $('.add_input_waktu');
+    //     var field_wrapper = $('.field_waktu');
+    //     var new_field_html = '<div><div class="input-group input-group-sm mb-2"><input type="date" name="berangkat[]" class=" form-control"  value=""/><a href="javascript:void(0);" class="remove_input_button" title="Remove field">&nbsp;&nbsp;&nbsp;<i class="bi bi-dash-circle text-danger fs-4"></i></a></div></div>';
+    //     var input_count = 1;
+    //     // Add button dynamically
+    //     $(add_input_button).click(function() {
+    //         if (input_count < max_fields) {
+    //             input_count++;
+    //             $(field_wrapper).append(new_field_html);
+    //         }
+    //     });
+    //     // Remove dynamically added button
+    //     $(field_wrapper).on('click', '.remove_input_button', function(e) {
+    //         e.preventDefault();
+    //         $(this).parent('div').remove();
+    //         input_count--;
+    //     });
+    // });
 
-    $(document).ready(function() {
-        var max_fields = 10;
-        var add_input_button = $('.add_input_hotel');
-        var field_wrapper = $('.field_hotel');
-        var new_field_html = '<div><div class="input-group input-group-sm mb-2"><input type="text" name="hotel[]" class=" form-control"  value=""/><a href="javascript:void(0);" class="remove_input_button" title="Remove field">&nbsp;&nbsp;&nbsp;<i class="bi bi-dash-circle text-danger fs-4"></i></a></div></div>';
-        var input_count = 1;
-        // Add button dynamically
-        $(add_input_button).click(function() {
-            if (input_count < max_fields) {
-                input_count++;
-                $(field_wrapper).append(new_field_html);
-            }
-        });
-        // Remove dynamically added button
-        $(field_wrapper).on('click', '.remove_input_button', function(e) {
-            e.preventDefault();
-            $(this).parent('div').remove();
-            input_count--;
-        });
-    });
+    // $(document).ready(function() {
+    //     var max_fields = 10;
+    //     var add_input_button = $('.add_input_hotel');
+    //     var field_wrapper = $('.field_hotel');
+    //     var new_field_html = '<div><div class="input-group input-group-sm mb-2"><input type="text" name="hotel[]" class=" form-control"  value=""/><a href="javascript:void(0);" class="remove_input_button" title="Remove field">&nbsp;&nbsp;&nbsp;<i class="bi bi-dash-circle text-danger fs-4"></i></a></div></div>';
+    //     var input_count = 1;
+    //     // Add button dynamically
+    //     $(add_input_button).click(function() {
+    //         if (input_count < max_fields) {
+    //             input_count++;
+    //             $(field_wrapper).append(new_field_html);
+    //         }
+    //     });
+    //     // Remove dynamically added button
+    //     $(field_wrapper).on('click', '.remove_input_button', function(e) {
+    //         e.preventDefault();
+    //         $(this).parent('div').remove();
+    //         input_count--;
+    //     });
+    // });
 
     var rupiah = document.getElementById('harga');
     rupiah.addEventListener('keyup', function(e) {
